@@ -13,7 +13,7 @@ namespace Rectangle
 
         private const Decimal LowerLimit = 0;
 
-        private String outOfBoundsErrorMessage = $"The value must be greater than {LowerLimit} and less than {UpperLimit}";
+        private readonly String outOfBoundsErrorMessage = $"The value must be greater than {LowerLimit} and less than {UpperLimit}";
         
         public Rectangle()
         {
