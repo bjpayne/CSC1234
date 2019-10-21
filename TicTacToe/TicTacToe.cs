@@ -5,55 +5,80 @@ namespace TicTacToe
 {
     class TicTacToe
     {
-        private readonly Int32[,] gameBoard;
+        private String[] Moves { get; set; } = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
-        private String[,] moves;
-
-        public TicTacToe()
+        public void Move(Int32 cell, Player player)
         {
-            this.gameBoard = new Int32[,] {
-				{0, 1, 2},
-				{3, 4, 5},
-				{6, 7, 8},
-				{0, 3, 6},
-				{1, 4, 7},
-				{2, 5, 8},
-				{0, 4, 8},
-				{2, 4, 6},
-			};
+            this.Moves[cell] = player.Symbol;
         }
 
-        public void Move(Int32 iPosition, Int32 jPosition, Player player)
+        public Int32 IsWin()
         {
-            this.moves[iPosition, jPosition] = player.Symbol;
-        }
-
-        public Boolean IsWin(Player player)
-        {
-            Boolean isWin = false;
-            
-            for (Int32 i = 0; i < 8; i++)
+            // First row matches
+            if (Moves[1] == Moves[2] && Moves[2] == Moves[3])
             {
-                Int32 cell1 = gameBoard[i, 0];
-                Int32 cell2 = gameBoard[i, 1];
-                Int32 cell3 = gameBoard[i, 2];
-
-                if (moves[i, 0] == "" || moves[i, 1] == "" || moves[i, 2] == "")
-                {
-                    continue;
-                }
-
-                if (moves[i, 0] == player.Symbol && 
-                    moves[i, 1] == player.Symbol && 
-                    moves[i, 2] == player.Symbol)
-                {
-                    isWin = true;
-
-                    break;
-                }
+                return 1;
+            }
+            
+            // Second row matches
+            if (Moves[4] == Moves[5] && Moves[5] == Moves[6])
+            {
+                return 1;
+            }
+            
+            // Third row matches
+            if (Moves[6] == Moves[7] && Moves[7] == Moves[8])
+            {
+                return 1;
             }
 
-            return isWin;
+            // First column matches
+            if (Moves[1] == Moves[4] && Moves[4] == Moves[7])
+            {
+                return 1;
+            }
+            
+            // Second column matches
+            if (Moves[2] == Moves[5] && Moves[5] == Moves[8])
+            {
+                return 1;
+            }
+            
+            // Third column matches
+            if (Moves[3] == Moves[6] && Moves[6] == Moves[9])
+            {
+                return 1;
+            }
+
+            // Top left to bottom right diagonal matches
+            if (Moves[1] == Moves[5] && Moves[5] == Moves[9])
+            {
+                return 1;
+            }
+            
+            // top right to bottom left diagonal matches
+            if (Moves[3] == Moves[5] && Moves[5] == Moves[7])
+            {
+                return 1;
+            }
+
+            // All cells are filled but no row column or diagonal match. Game is a draw.
+            if (Moves[1]!= "1" &&
+                Moves[2]!= "2" &&
+                Moves[3]!= "3" &&
+                Moves[4]!= "4" &&
+                Moves[5]!= "5" &&
+                Moves[6]!= "6" &&
+                Moves[7]!= "7" &&
+                Moves[8]!= "8" &&
+                Moves[9]!= "9"
+            )
+            {
+                return -1;
+            }
+
+            // No win, or draw...keep playing.
+            return 0;
         }
     }
 }

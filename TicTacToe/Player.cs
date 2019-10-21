@@ -4,19 +4,15 @@ namespace TicTacToe
 {
     public class Player
     {
-        private String symbol;
-
-        private Int32 hits;
-
         public String Symbol { get; set; }
 
-        public Int32 Hits { get; set; }
+        public String DisplayName { get; set; }
 
-        public Player(String symbol)
+        public Player(String symbol, String displayName)
         {
-            this.symbol = symbol;
+            Symbol = symbol;
 
-            this.hits = 0;
+            DisplayName = displayName;
         }
     }
 }
