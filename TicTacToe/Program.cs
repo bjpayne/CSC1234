@@ -7,16 +7,20 @@ namespace TicTacToe
         static void Main(string[] args)
         {
             TicTacToe game = new TicTacToe();
+
+            Player player1 = new Player {Symbol = "X", DisplayName = "Player 1"};
             
-            Player player1 = new Player("X", "Player 1");
-            
-            Player player2 = new Player("O", "Player 2");
+            Player player2 = new Player {Symbol = "O", DisplayName = "Player 2"};
             
             Board board = new Board();
             
-            board.Display();
-            
-            Console.WriteLine("Player 1 is X and Player 2 is O");
+            Console.WriteLine(
+                "{0} is {1} and {2} is {3}",
+                player1.DisplayName,
+                player1.Symbol,
+                player2.DisplayName,
+                player2.Symbol
+            );
             
             Int32 nextPlayer = 1;
 
@@ -26,17 +30,29 @@ namespace TicTacToe
             
             do
             {
+                // Use odd / even counter to determine next player
                 player = nextPlayer % 2 == 1 ? player1 : player2;
+
+                String choice = "";
+
+                Int32 cell = 0;
+
+                do
+                {
+                    board.Display();
+            
+                    Console.Write("{0}, choose a cell: ", player.DisplayName);
+
+                    choice = Console.ReadLine();
+                } while (String.IsNullOrEmpty(choice) || ! Int32.TryParse(choice, out cell));
+
+                cell = Int32.Parse(choice);
+
+                // Set the game cell
+                game.Moves[cell] = player.Symbol;
                 
-                Console.Write("{0}, choose a cell: ", player.DisplayName);
-
-                String choice = Console.ReadLine();
-
-                Int32 cell = Int32.Parse(choice);
-
-                game.Move(cell, player);
-                
-                board.SetCell(player, cell);
+                // Set the UI cell
+                board.Cells[cell] = game.Moves[cell];
                 
                 board.Display();
                 
@@ -52,6 +68,8 @@ namespace TicTacToe
 
             if (playAgain.ToLower() != "y")
             {
+                Console.WriteLine("Goodbye!");
+                
                 Environment.Exit(0);
             }
 
