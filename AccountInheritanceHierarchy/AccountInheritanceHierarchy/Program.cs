@@ -49,6 +49,8 @@ namespace AccountInheritanceHierarchy
                         break;
                     case "3":
                         Console.WriteLine("Goodbye!");
+                        
+                        Console.Clear();
 
                         Environment.Exit(0);
 
