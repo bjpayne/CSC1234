@@ -7,7 +7,7 @@ namespace AccountInheritanceHierarchy
     {
         private Decimal accountFee;
 
-        private Decimal AccountFee
+        public Decimal AccountFee
         {
             get => accountFee;
             set

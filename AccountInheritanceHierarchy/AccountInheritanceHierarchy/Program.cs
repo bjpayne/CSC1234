@@ -85,6 +85,13 @@ namespace AccountInheritanceHierarchy
                         {
                             PerformAccountAction(CheckingAccount, action);
 
+                            if (action == "1" || action == "2")
+                            {
+                                Console.WriteLine($"You were assessed a {CheckingAccount.AccountFee:C} for this transaction.");
+                                
+                                Thread.Sleep(1500);
+                            }
+
                             actionSucceeded = true;
                         }
                         catch (Exception e)
