@@ -9,7 +9,7 @@ namespace AccountInheritanceHierarchy
         public Decimal Balance
         {
             get => balance;
-            set
+            protected set
             {
                 if (value < 0)
                 {
@@ -27,9 +27,9 @@ namespace AccountInheritanceHierarchy
 
         public virtual void Credit(Decimal amount)
         {
-            if (amount <= 0)
+            if (amount < 0)
             {
-                throw new Exception("Cannot credit an amount less than or equal to 0.");
+                throw new Exception("Cannot credit an amount less than 0.");
             }
 
             Balance += amount;
@@ -37,9 +37,9 @@ namespace AccountInheritanceHierarchy
 
         public virtual void Debit(Decimal amount)
         {
-            if (amount <= 0)
+            if (amount < 0)
             {
-                throw new Exception("Cannot debit an amount less than or equal to 0.");
+                throw new Exception("Cannot debit an amount less 0.");
             }
 
             if (amount > Balance)

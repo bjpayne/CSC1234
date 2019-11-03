@@ -6,7 +6,7 @@ namespace AccountInheritanceHierarchy
     {
         private Decimal interestRate;
 
-        public Decimal InterestRate
+        private Decimal InterestRate
         {
             get => interestRate;
             set
@@ -22,7 +22,7 @@ namespace AccountInheritanceHierarchy
 
         public SavingsAccount(Decimal initialBalance, Decimal interestRate) : base (initialBalance)
         {
-            InterestRate = interestRate;
+            InterestRate = (interestRate / 100);
         }
 
         public Decimal CalculateInterest()

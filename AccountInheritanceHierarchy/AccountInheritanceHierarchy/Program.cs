@@ -1,196 +1,299 @@
 ﻿using System;
-using System.Reflection;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace AccountInheritanceHierarchy
 {
     class Program
     {
-        static void Main(string[] args)
+        private static readonly CheckingAccount CheckingAccount = new CheckingAccount(
+            1200m, 
+            10m
+        );
+        
+        private static readonly SavingsAccount SavingsAccount = new SavingsAccount(
+            15000m,
+            1.25m
+        );
+
+        static void Main(String[] args)
         {
             try
             {
-                String quit = "n";
+                String action = "0";
 
-                do
+                String[] actions = {"1", "2", "3"};
+
+                String[] prompts = {"1: Checking Account", "2: Savings Account", "3: Exit"};
+
+                while (! Array.Exists(actions, element => element == action.ToLower()))
                 {
-                    Console.WriteLine("Welcome to XYZ Bank! Please select one of the following options:");
+                    Console.Clear();
 
-                    String account = "0";
-                    
-                    while (account != "1" && account != "2")
-                    {
-                        Console.WriteLine("1: Checking Account");
-                        Console.WriteLine("2: Savings Account");
-                            
-                        account = Console.ReadLine();
-                    }
+                    Console.WriteLine("Welcome to XYZ Bank! Please choose which account you'd like to manage:");
 
-                    switch (account)
-                    {
-                        case "1":
-                            CheckingAccountServices();
-                            break;
-                        case "2":
-                            SavingsAccountServices();
-                            break;
-                        default:
-                            Console.WriteLine("All set? (y/N)");
-                            break;
-                    }
+                    RequestUserInput(prompts);
 
-                    quit = Console.ReadLine();
+                    action = Console.ReadLine();
+                }
 
-                    if (quit.Length == 0)
-                    {
-                        quit = "n";
-                    }
-                } while (quit.ToLower() != "y");
+                switch (action)
+                {
+                    case "1":
+                        CheckingAccountServices();
+
+                        break;
+                    case "2":
+                        SavingsAccountServices();
+
+                        break;
+                    case "3":
+                        Console.WriteLine("Goodbye!");
+
+                        Environment.Exit(0);
+
+                        break;
+                    default:
+                        Environment.Exit(1);
+
+                        break;
+                }
+
+                Environment.Exit(2);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
+                Console.WriteLine("Your request could not be completed. Please try again.");
+
+                Main(args);
             }
         }
 
         private static void CheckingAccountServices()
         {
-            String done = "n";
-
-            while (done.ToLower() == "n")
+            while (true)
             {
                 try
                 {
-                    CheckingAccount checkingAccount = new CheckingAccount(2500m, 12m);
-                    
-                    Console.WriteLine($"Your checking account balance is {checkingAccount.Balance}.");
-                    Console.WriteLine("How can we help you?");
+                    DisplayInitialAccountDetails(CheckingAccount, "checking");
 
-                    String action = "0";
+                    String action = PromptForAccountAction();
 
-                    while (action != "1" && action != "2")
+                    Boolean actionSucceeded = false;
+
+                    while (!actionSucceeded)
                     {
-                        Console.WriteLine(new String('-', 12));
-                        Console.WriteLine("1. Deposit Funds");
-                        Console.WriteLine("2. Withdraw Funds");
-
-                        action = Console.ReadLine();
-                    }
-
-                    if (action == "1")
-                    {
-                        Console.WriteLine("How much would you like to deposit?");
-
-                        String userAmount = Console.ReadLine();
-
-                        if (Decimal.TryParse(userAmount, out Decimal amount))
+                        try
                         {
-                            checkingAccount.Credit(amount);
+                            PerformAccountAction(CheckingAccount, action);
+
+                            actionSucceeded = true;
+                        }
+                        catch (Exception e)
+                        {
+                            HandleActionException(e);
                         }
                     }
-
-                    if (action == "2")
-                    {
-                         Console.WriteLine("How much would you like to withdraw?");
- 
-                         String userAmount = Console.ReadLine();
- 
-                         if (Decimal.TryParse(userAmount, out Decimal amount))
-                         {
-                             checkingAccount.Debit(amount);
-                         }                       
-                    }
-                    
-                    Console.WriteLine("All set with your checking account? (n/Y)");
-
-                    done = Console.ReadLine();
-
-                    if (done.Length == 0)
-                    {
-                        done = "y";
-                    }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    Console.WriteLine(e);
-                    
-                    Thread.Sleep(3000);
-                             
-                    CheckingAccountServices();
+                    Console.WriteLine("Your request could not be completed. Please try again.");
                 }   
             }
         }
 
         private static void SavingsAccountServices()
         {
-             String done = "n";
- 
-             while (done.ToLower() == "n")
-             {
-                 try
-                 {
-                     SavingsAccount savingsAccount = new SavingsAccount(2500m, 1.25m);
-                     
-                     Console.WriteLine($"Your savings account balance is {savingsAccount.Balance}.");
-                     Console.WriteLine("How can we help you?");
- 
-                     String action = "0";
- 
-                     while (action != "1" && action != "2")
-                     {
-                         Console.WriteLine(new String('-', 12));
-                         Console.WriteLine("1. Deposit Funds");
-                         Console.WriteLine("2. Withdraw Funds");
- 
-                         action = Console.ReadLine();
-                     }
- 
-                     if (action == "1")
-                     {
-                         Console.WriteLine("How much would you like to deposit?");
- 
-                         String userAmount = Console.ReadLine();
- 
-                         if (Decimal.TryParse(userAmount, out Decimal amount))
-                         {
-                             Decimal interest = savingsAccount.CalculateInterest();
+            while (true)
+            {
+                try
+                {
+                    DisplayInitialAccountDetails(SavingsAccount, "savings");
 
-                             amount += interest;
-                             
-                             savingsAccount.Credit(amount);
-                         }
-                     }
- 
-                     if (action == "2")
-                     {
-                          Console.WriteLine("How much would you like to withdraw?");
-  
-                          String userAmount = Console.ReadLine();
-  
-                          if (Decimal.TryParse(userAmount, out Decimal amount))
-                          {
-                              savingsAccount.Debit(amount);
-                          }                       
-                     }
-                     
-                     Console.WriteLine("All set with your savings account? (n/Y)");
- 
-                     done = Console.ReadLine();
- 
-                     if (done.Length == 0)
-                     {
-                         done = "y";
-                     }
-                 }
-                 catch (Exception e)
-                 {
-                     Console.WriteLine(e);
-                     
-                     Thread.Sleep(3000);
-                              
-                     CheckingAccountServices();
-                 }   
-             }           
+                    String action = PromptForAccountAction();
+                    
+                    Boolean actionSucceeded = false;
+                    
+                    while (!actionSucceeded)
+                    {
+                        try
+                        {
+                            PerformAccountAction(SavingsAccount, action);
+                            
+                            /**
+                             * When depositing into the savings account check if the user would like to deposit their
+                             * monthly interest. 
+                             */
+                            if (action == "1")
+                            {
+                                String response = "";
+
+                                String[] responses = {"y", "n"};
+                                                
+                                while (! Array.Exists(responses, element => element == response.ToLower()))
+                                {
+                                    RequestUserInput("Would you like to deposit your monthly interest? (y/n)");
+                                    
+                                    response = Console.ReadLine();
+                                };
+
+                                if (response == "y")
+                                {
+                                    Decimal interest = SavingsAccount.CalculateInterest();
+                                    
+                                    SavingsAccount.Credit(interest);
+                                    
+                                    Console.WriteLine($"You've earned {interest:C} in interest.");
+                                
+                                    Thread.Sleep(2000);
+                                }
+                            }
+                    
+                            actionSucceeded = true;
+                        }
+                        catch (Exception e)
+                        {
+                            HandleActionException(e);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Your request could not be completed. Please try again.");
+                }
+            }
+        }
+
+        private static void HandleActionException(Exception e)
+        {
+            Console.WriteLine(e.Message);
+
+            Thread.Sleep(1500); // Pause so the user has time to see the error.
+        }
+
+        private static void DisplayInitialAccountDetails(Account account, String accountType)
+        {
+            Console.Clear();
+            
+            Console.WriteLine($"Your {accountType} account balance is {account.Balance:C}.");
+            
+            // Give user time to see the account balance.
+            Thread.Sleep(1500);
+            
+            Console.WriteLine("How can we help you?");
+        }
+
+        private static String PromptForAccountAction()
+        {
+            Console.WriteLine(new String('-', 20));
+            
+            String[] actions = { "1", "2", "3" };
+            
+            String[] prompts = {"1. Deposit Funds", "2. Withdraw Funds", "3. Go back"};
+            
+            String action = "0";
+                
+            while (! Array.Exists(actions, element => element == action))
+            {
+                RequestUserInput(prompts);
+
+                action = Console.ReadLine();
+            }
+
+            return action;
+        }
+
+        private static void PerformAccountAction(Account account, String action)
+        {
+            switch (action)
+            {
+                case "1":
+                    CreditAccount(account);
+                    
+                    DisplayUpdatedAccountBalance(account);
+
+                    break;
+                case "2":
+                    DebitAccount(account);
+                    
+                    DisplayUpdatedAccountBalance(account);
+
+                    break;
+                case "3":
+                    Console.Clear();
+
+                    String[] args = {};
+                    
+                    Main(args);
+
+                    break;
+                default:
+                    Console.WriteLine("Invalid selection.");
+                    
+                    break;
+            }
+        }
+
+        private static void DebitAccount(Account account)
+        {
+            String userAmount;
+             
+            Decimal amount;
+                                     
+            do
+            {
+                RequestUserInput("How much would you like to withdraw?");
+             
+                userAmount = Console.ReadLine();
+            } while (!Decimal.TryParse(userAmount, out amount));
+             
+            account.Debit(amount);
+        }
+
+        private static void CreditAccount(Account account)
+        {
+            String userAmount;
+            
+            Decimal amount;
+                                    
+            do
+            {
+                RequestUserInput("How much would you like to deposit?");
+            
+                userAmount = Console.ReadLine();
+            } while (!Decimal.TryParse(userAmount, out amount));
+            
+            account.Credit(amount);
+        }
+
+        /**
+         * Default handler for requesting user input
+         */
+        private static void RequestUserInput(String prompt)
+        {
+            Console.WriteLine(prompt);
+            
+            Console.Write("> ");
+        }
+
+        /**
+         * Default handler for requesting user input w/ multiple lines of text
+         */
+        private static void RequestUserInput(IEnumerable<String> prompts)
+        {
+            foreach (String prompt in prompts)
+            {
+                Console.WriteLine(prompt);
+            }
+            
+            Console.Write("> ");
+        }
+        
+        private static void DisplayUpdatedAccountBalance(Account account)
+        {
+            Console.WriteLine($"Your new account balance is {account.Balance:C}");
+        
+            Thread.Sleep(1500);
         }
     }
 }
