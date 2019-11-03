@@ -75,7 +75,7 @@ namespace AccountInheritanceHierarchy
             {
                 try
                 {
-                    String action = PromptForAccountAction();
+                    String action = PromptForAccountAction(CheckingAccount, "checking");
 
                     Boolean actionSucceeded = false;
 
@@ -106,7 +106,7 @@ namespace AccountInheritanceHierarchy
             {
                 try
                 {
-                    String action = PromptForAccountAction();
+                    String action = PromptForAccountAction(SavingsAccount, "savings");
                     
                     Boolean actionSucceeded = false;
                     
@@ -185,7 +185,7 @@ namespace AccountInheritanceHierarchy
             Console.WriteLine(new String('-', 20));
         }
 
-        private static String PromptForAccountAction()
+        private static String PromptForAccountAction(Account account, String accountType)
         {
             String[] actions = { "1", "2", "3" };
             
@@ -197,7 +197,7 @@ namespace AccountInheritanceHierarchy
                 
             while (! Array.Exists(actions, element => element == action))
             {
-                DisplayInitialAccountDetails(CheckingAccount, "checking", initialDisplay);
+                DisplayInitialAccountDetails(account, accountType, initialDisplay);
 
                 initialDisplay++;
                 
@@ -241,7 +241,7 @@ namespace AccountInheritanceHierarchy
             String userAmount;
              
             Decimal amount;
-                                     
+            
             do
             {
                 RequestUserInput("How much would you like to withdraw?");
