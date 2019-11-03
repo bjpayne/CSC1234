@@ -75,8 +75,6 @@ namespace AccountInheritanceHierarchy
             {
                 try
                 {
-                    DisplayInitialAccountDetails(CheckingAccount, "checking");
-
                     String action = PromptForAccountAction();
 
                     Boolean actionSucceeded = false;
@@ -108,8 +106,6 @@ namespace AccountInheritanceHierarchy
             {
                 try
                 {
-                    DisplayInitialAccountDetails(SavingsAccount, "savings");
-
                     String action = PromptForAccountAction();
                     
                     Boolean actionSucceeded = false;
@@ -171,30 +167,40 @@ namespace AccountInheritanceHierarchy
             Thread.Sleep(1500); // Pause so the user has time to see the error.
         }
 
-        private static void DisplayInitialAccountDetails(Account account, String accountType)
+        private static void DisplayInitialAccountDetails(Account account, String accountType, Int32 initialDisplay)
         {
             Console.Clear();
             
             Console.WriteLine($"Your {accountType} account balance is {account.Balance:C}.");
-            
-            // Give user time to see the account balance.
-            Thread.Sleep(1500);
-            
+
+            if (initialDisplay == 0)
+            {
+                // Give user time to see the account balance.
+                
+                Thread.Sleep(1500);   
+            }
+
             Console.WriteLine("How can we help you?");
+            
+            Console.WriteLine(new String('-', 20));
         }
 
         private static String PromptForAccountAction()
         {
-            Console.WriteLine(new String('-', 20));
-            
             String[] actions = { "1", "2", "3" };
             
             String[] prompts = {"1. Deposit Funds", "2. Withdraw Funds", "3. Go back"};
             
             String action = "0";
+
+            Int32 initialDisplay = 0;
                 
             while (! Array.Exists(actions, element => element == action))
             {
+                DisplayInitialAccountDetails(CheckingAccount, "checking", initialDisplay);
+
+                initialDisplay++;
+                
                 RequestUserInput(prompts);
 
                 action = Console.ReadLine();
@@ -210,14 +216,10 @@ namespace AccountInheritanceHierarchy
                 case "1":
                     CreditAccount(account);
                     
-                    DisplayUpdatedAccountBalance(account);
-
                     break;
                 case "2":
                     DebitAccount(account);
                     
-                    DisplayUpdatedAccountBalance(account);
-
                     break;
                 case "3":
                     Console.Clear();
@@ -287,13 +289,6 @@ namespace AccountInheritanceHierarchy
             }
             
             Console.Write("> ");
-        }
-        
-        private static void DisplayUpdatedAccountBalance(Account account)
-        {
-            Console.WriteLine($"Your new account balance is {account.Balance:C}");
-        
-            Thread.Sleep(1500);
         }
     }
 }
