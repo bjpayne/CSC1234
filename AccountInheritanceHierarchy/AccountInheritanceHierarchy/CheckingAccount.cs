@@ -37,7 +37,7 @@ namespace AccountInheritanceHierarchy
         {
             if ((amount + AccountFee) > Balance)
             {
-                throw new Exception("Debit amount plus transaction fee exceeds the account balance.");
+                throw new Exception($"Debit amount plus transaction fee ({AccountFee:C}) exceeds the account balance.");
             }
             
             base.Debit(amount);
