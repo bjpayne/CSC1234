@@ -50,6 +50,8 @@ namespace AccountInheritanceHierarchy
                     case "3":
                         Console.WriteLine("Goodbye!");
                         
+                        Thread.Sleep(1500);
+                        
                         Console.Clear();
 
                         Environment.Exit(0);
