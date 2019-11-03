@@ -13,7 +13,7 @@ namespace AccountInheritanceHierarchy
             {
                 if (value < 0)
                 {
-                    throw new Exception("Initial balance cannot less than 0.");
+                    throw new Exception("Initial balance cannot be less than 0.");
                 }
 
                 balance = value;

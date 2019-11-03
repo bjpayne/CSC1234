@@ -35,6 +35,11 @@ namespace AccountInheritanceHierarchy
 
         public override void Debit(Decimal amount)
         {
+            if ((amount + AccountFee) > Balance)
+            {
+                throw new Exception("Debit amount plus transaction fee exceeds the account balance.");
+            }
+            
             base.Debit(amount);
 
             Balance -= AccountFee;
