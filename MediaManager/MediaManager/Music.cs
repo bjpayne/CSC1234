@@ -8,6 +8,14 @@ namespace MediaManager
     {
         public const String Category = "music";
 
+        private String name;
+
+        public String Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
         private List<KeyValuePair<String, String>> metaData;
         public List<KeyValuePair<String, String>> MetaData
         {
