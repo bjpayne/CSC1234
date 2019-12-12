@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dataDataSet" targetNamespace="http://tempuri.org/dataDataSet.xsd" xmlns:mstns="http://tempuri.org/dataDataSet.xsd" xmlns="http://tempuri.org/dataDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="data" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="data (Settings)" PropertyReference="ApplicationSettings.Final_Project.Properties.Settings.GlobalReference.Default.data" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="existing_mediaTableAdapter" GeneratorDataComponentClassName="existing_mediaTableAdapter" Name="existing_media" UserDataComponentName="existing_mediaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="data (Settings)" DbObjectName="existing_media" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, type, titlte, description, genre, length, artists, cost, date_released, publisher, location, format, [size] FROM existing_media</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="type" DataSetColumn="type" />
+              <Mapping SourceColumn="titlte" DataSetColumn="titlte" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="genre" DataSetColumn="genre" />
+              <Mapping SourceColumn="length" DataSetColumn="length" />
+              <Mapping SourceColumn="artists" DataSetColumn="artists" />
+              <Mapping SourceColumn="cost" DataSetColumn="cost" />
+              <Mapping SourceColumn="date_released" DataSetColumn="date_released" />
+              <Mapping SourceColumn="publisher" DataSetColumn="publisher" />
+              <Mapping SourceColumn="location" DataSetColumn="location" />
+              <Mapping SourceColumn="format" DataSetColumn="format" />
+              <Mapping SourceColumn="size" DataSetColumn="size" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="mediaTableAdapter" GeneratorDataComponentClassName="mediaTableAdapter" Name="media" UserDataComponentName="mediaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="data (Settings)" DbObjectName="media" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `media` WHERE ((`ID` = ?) AND ((? = 1 AND `type_id` IS NULL) OR (`type_id` = ?)) AND ((? = 1 AND `titlte` IS NULL) OR (`titlte` = ?)) AND ((? = 1 AND `description` IS NULL) OR (`description` = ?)) AND ((? = 1 AND `genre` IS NULL) OR (`genre` = ?)) AND ((? = 1 AND `length` IS NULL) OR (`length` = ?)) AND ((? = 1 AND `artists` IS NULL) OR (`artists` = ?)) AND ((? = 1 AND `cost` IS NULL) OR (`cost` = ?)) AND ((? = 1 AND `date_released` IS NULL) OR (`date_released` = ?)) AND ((? = 1 AND `publisher` IS NULL) OR (`publisher` = ?)) AND ((? = 1 AND `location` IS NULL) OR (`location` = ?)) AND ((? = 1 AND `format` IS NULL) OR (`format` = ?)) AND ((? = 1 AND `size` IS NULL) OR (`size` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_type_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="type_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_type_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="type_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_titlte" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="titlte" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_titlte" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="titlte" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_description" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_description" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_genre" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="genre" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_genre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="genre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_length" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="length" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_length" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="length" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_artists" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="artists" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_artists" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="artists" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_cost" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="Original_cost" Precision="0" ProviderType="Currency" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_date_released" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="date_released" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_date_released" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date_released" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_publisher" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="publisher" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_publisher" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="publisher" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_location" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="location" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_location" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="location" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_format" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="format" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_format" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="format" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_size" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="size" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_size" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="size" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `media` (`type_id`, `titlte`, `description`, `genre`, `length`, `artists`, `cost`, `date_released`, `publisher`, `location`, `format`, `size`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="type_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="type_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="titlte" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="titlte" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="description" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="genre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="genre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="length" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="length" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="artists" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="artists" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="cost" Precision="0" ProviderType="Currency" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="date_released" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date_released" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="publisher" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="publisher" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="location" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="location" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="format" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="format" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="size" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="size" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, type_id, titlte, description, genre, length, artists, cost, date_released, publisher, location, format, [size] FROM media</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `media` SET `type_id` = ?, `titlte` = ?, `description` = ?, `genre` = ?, `length` = ?, `artists` = ?, `cost` = ?, `date_released` = ?, `publisher` = ?, `location` = ?, `format` = ?, `size` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `type_id` IS NULL) OR (`type_id` = ?)) AND ((? = 1 AND `titlte` IS NULL) OR (`titlte` = ?)) AND ((? = 1 AND `description` IS NULL) OR (`description` = ?)) AND ((? = 1 AND `genre` IS NULL) OR (`genre` = ?)) AND ((? = 1 AND `length` IS NULL) OR (`length` = ?)) AND ((? = 1 AND `artists` IS NULL) OR (`artists` = ?)) AND ((? = 1 AND `cost` IS NULL) OR (`cost` = ?)) AND ((? = 1 AND `date_released` IS NULL) OR (`date_released` = ?)) AND ((? = 1 AND `publisher` IS NULL) OR (`publisher` = ?)) AND ((? = 1 AND `location` IS NULL) OR (`location` = ?)) AND ((? = 1 AND `format` IS NULL) OR (`format` = ?)) AND ((? = 1 AND `size` IS NULL) OR (`size` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="type_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="type_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="titlte" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="titlte" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="description" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="genre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="genre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="length" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="length" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="artists" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="artists" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="cost" Precision="0" ProviderType="Currency" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="date_released" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date_released" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="publisher" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="publisher" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="location" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="location" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="format" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="format" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="size" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="size" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_type_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="type_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_type_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="type_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_titlte" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="titlte" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_titlte" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="titlte" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_description" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_description" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_genre" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="genre" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_genre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="genre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_length" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="length" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_length" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="length" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_artists" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="artists" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_artists" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="artists" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_cost" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="Original_cost" Precision="0" ProviderType="Currency" Scale="0" Size="0" SourceColumn="cost" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_date_released" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="date_released" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_date_released" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date_released" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_publisher" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="publisher" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_publisher" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="publisher" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_location" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="location" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_location" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="location" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_format" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="format" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_format" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="format" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_size" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="size" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_size" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="size" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="type_id" DataSetColumn="type_id" />
+              <Mapping SourceColumn="titlte" DataSetColumn="titlte" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="genre" DataSetColumn="genre" />
+              <Mapping SourceColumn="length" DataSetColumn="length" />
+              <Mapping SourceColumn="artists" DataSetColumn="artists" />
+              <Mapping SourceColumn="cost" DataSetColumn="cost" />
+              <Mapping SourceColumn="date_released" DataSetColumn="date_released" />
+              <Mapping SourceColumn="publisher" DataSetColumn="publisher" />
+              <Mapping SourceColumn="location" DataSetColumn="location" />
+              <Mapping SourceColumn="format" DataSetColumn="format" />
+              <Mapping SourceColumn="size" DataSetColumn="size" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="media_imagesTableAdapter" GeneratorDataComponentClassName="media_imagesTableAdapter" Name="media_images" UserDataComponentName="media_imagesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="data (Settings)" DbObjectName="media_images" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `media_images` WHERE ((`id` = ?) AND ((? = 1 AND `media_id` IS NULL) OR (`media_id` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_media_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="media_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_media_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="media_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `media_images` (`media_id`, `image`) VALUES (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="media_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="media_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="image" Precision="0" ProviderType="LongVarBinary" Scale="0" Size="0" SourceColumn="image" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, media_id, [image] FROM media_images</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `media_images` SET `media_id` = ?, `image` = ? WHERE ((`id` = ?) AND ((? = 1 AND `media_id` IS NULL) OR (`media_id` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="media_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="media_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="image" Precision="0" ProviderType="LongVarBinary" Scale="0" Size="0" SourceColumn="image" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_media_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="media_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_media_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="media_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="media_id" DataSetColumn="media_id" />
+              <Mapping SourceColumn="image" DataSetColumn="image" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="media_typesTableAdapter" GeneratorDataComponentClassName="media_typesTableAdapter" Name="media_types" UserDataComponentName="media_typesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="data (Settings)" DbObjectName="media_types" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `media_types` WHERE ((`id` = ?) AND ((? = 1 AND `type` IS NULL) OR (`type` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_type" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_type" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `media_types` (`type`) VALUES (?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="type" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, type FROM media_types</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `media_types` SET `type` = ? WHERE ((`id` = ?) AND ((? = 1 AND `type` IS NULL) OR (`type` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="type" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_type" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_type" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="type" DataSetColumn="type" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dataDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dataDataSet" msprop:Generator_UserDSName="dataDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="existing_media" msprop:Generator_TableClassName="existing_mediaDataTable" msprop:Generator_TableVarName="tableexisting_media" msprop:Generator_RowChangedName="existing_mediaRowChanged" msprop:Generator_TablePropName="existing_media" msprop:Generator_RowDeletingName="existing_mediaRowDeleting" msprop:Generator_RowChangingName="existing_mediaRowChanging" msprop:Generator_RowEvHandlerName="existing_mediaRowChangeEventHandler" msprop:Generator_RowDeletedName="existing_mediaRowDeleted" msprop:Generator_RowClassName="existing_mediaRow" msprop:Generator_UserTableName="existing_media" msprop:Generator_RowEvArgName="existing_mediaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+              <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="titlte" msprop:Generator_ColumnVarNameInTable="columntitlte" msprop:Generator_ColumnPropNameInRow="titlte" msprop:Generator_ColumnPropNameInTable="titlteColumn" msprop:Generator_UserColumnName="titlte" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="genre" msprop:Generator_ColumnVarNameInTable="columngenre" msprop:Generator_ColumnPropNameInRow="genre" msprop:Generator_ColumnPropNameInTable="genreColumn" msprop:Generator_UserColumnName="genre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="length" msprop:Generator_ColumnVarNameInTable="columnlength" msprop:Generator_ColumnPropNameInRow="length" msprop:Generator_ColumnPropNameInTable="lengthColumn" msprop:Generator_UserColumnName="length" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="artists" msprop:Generator_ColumnVarNameInTable="columnartists" msprop:Generator_ColumnPropNameInRow="artists" msprop:Generator_ColumnPropNameInTable="artistsColumn" msprop:Generator_UserColumnName="artists" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cost" msprop:Generator_ColumnVarNameInTable="columncost" msprop:Generator_ColumnPropNameInRow="cost" msprop:Generator_ColumnPropNameInTable="costColumn" msprop:Generator_UserColumnName="cost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="date_released" msprop:Generator_ColumnVarNameInTable="columndate_released" msprop:Generator_ColumnPropNameInRow="date_released" msprop:Generator_ColumnPropNameInTable="date_releasedColumn" msprop:Generator_UserColumnName="date_released" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="publisher" msprop:Generator_ColumnVarNameInTable="columnpublisher" msprop:Generator_ColumnPropNameInRow="publisher" msprop:Generator_ColumnPropNameInTable="publisherColumn" msprop:Generator_UserColumnName="publisher" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnPropNameInTable="locationColumn" msprop:Generator_UserColumnName="location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="format" msprop:Generator_ColumnVarNameInTable="columnformat" msprop:Generator_ColumnPropNameInRow="format" msprop:Generator_ColumnPropNameInTable="formatColumn" msprop:Generator_UserColumnName="format" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="size" msprop:Generator_ColumnVarNameInTable="columnsize" msprop:Generator_ColumnPropNameInRow="size" msprop:Generator_ColumnPropNameInTable="sizeColumn" msprop:Generator_UserColumnName="size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="media" msprop:Generator_TableClassName="mediaDataTable" msprop:Generator_TableVarName="tablemedia" msprop:Generator_TablePropName="media" msprop:Generator_RowDeletingName="mediaRowDeleting" msprop:Generator_RowChangingName="mediaRowChanging" msprop:Generator_RowEvHandlerName="mediaRowChangeEventHandler" msprop:Generator_RowDeletedName="mediaRowDeleted" msprop:Generator_UserTableName="media" msprop:Generator_RowChangedName="mediaRowChanged" msprop:Generator_RowEvArgName="mediaRowChangeEvent" msprop:Generator_RowClassName="mediaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="type_id" msprop:Generator_ColumnVarNameInTable="columntype_id" msprop:Generator_ColumnPropNameInRow="type_id" msprop:Generator_ColumnPropNameInTable="type_idColumn" msprop:Generator_UserColumnName="type_id" type="xs:int" minOccurs="0" />
+              <xs:element name="titlte" msprop:Generator_ColumnVarNameInTable="columntitlte" msprop:Generator_ColumnPropNameInRow="titlte" msprop:Generator_ColumnPropNameInTable="titlteColumn" msprop:Generator_UserColumnName="titlte" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="genre" msprop:Generator_ColumnVarNameInTable="columngenre" msprop:Generator_ColumnPropNameInRow="genre" msprop:Generator_ColumnPropNameInTable="genreColumn" msprop:Generator_UserColumnName="genre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="length" msprop:Generator_ColumnVarNameInTable="columnlength" msprop:Generator_ColumnPropNameInRow="length" msprop:Generator_ColumnPropNameInTable="lengthColumn" msprop:Generator_UserColumnName="length" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="artists" msprop:Generator_ColumnVarNameInTable="columnartists" msprop:Generator_ColumnPropNameInRow="artists" msprop:Generator_ColumnPropNameInTable="artistsColumn" msprop:Generator_UserColumnName="artists" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cost" msprop:Generator_ColumnVarNameInTable="columncost" msprop:Generator_ColumnPropNameInRow="cost" msprop:Generator_ColumnPropNameInTable="costColumn" msprop:Generator_UserColumnName="cost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="date_released" msprop:Generator_ColumnVarNameInTable="columndate_released" msprop:Generator_ColumnPropNameInRow="date_released" msprop:Generator_ColumnPropNameInTable="date_releasedColumn" msprop:Generator_UserColumnName="date_released" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="publisher" msprop:Generator_ColumnVarNameInTable="columnpublisher" msprop:Generator_ColumnPropNameInRow="publisher" msprop:Generator_ColumnPropNameInTable="publisherColumn" msprop:Generator_UserColumnName="publisher" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnPropNameInTable="locationColumn" msprop:Generator_UserColumnName="location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="format" msprop:Generator_ColumnVarNameInTable="columnformat" msprop:Generator_ColumnPropNameInRow="format" msprop:Generator_ColumnPropNameInTable="formatColumn" msprop:Generator_UserColumnName="format" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="size" msprop:Generator_ColumnVarNameInTable="columnsize" msprop:Generator_ColumnPropNameInRow="size" msprop:Generator_ColumnPropNameInTable="sizeColumn" msprop:Generator_UserColumnName="size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="media_images" msprop:Generator_TableClassName="media_imagesDataTable" msprop:Generator_TableVarName="tablemedia_images" msprop:Generator_TablePropName="media_images" msprop:Generator_RowDeletingName="media_imagesRowDeleting" msprop:Generator_RowChangingName="media_imagesRowChanging" msprop:Generator_RowEvHandlerName="media_imagesRowChangeEventHandler" msprop:Generator_RowDeletedName="media_imagesRowDeleted" msprop:Generator_UserTableName="media_images" msprop:Generator_RowChangedName="media_imagesRowChanged" msprop:Generator_RowEvArgName="media_imagesRowChangeEvent" msprop:Generator_RowClassName="media_imagesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="media_id" msprop:Generator_ColumnVarNameInTable="columnmedia_id" msprop:Generator_ColumnPropNameInRow="media_id" msprop:Generator_ColumnPropNameInTable="media_idColumn" msprop:Generator_UserColumnName="media_id" type="xs:int" minOccurs="0" />
+              <xs:element name="image" msprop:Generator_ColumnVarNameInTable="columnimage" msprop:Generator_ColumnPropNameInRow="image" msprop:Generator_ColumnPropNameInTable="imageColumn" msprop:Generator_UserColumnName="image" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="media_types" msprop:Generator_TableClassName="media_typesDataTable" msprop:Generator_TableVarName="tablemedia_types" msprop:Generator_TablePropName="media_types" msprop:Generator_RowDeletingName="media_typesRowDeleting" msprop:Generator_RowChangingName="media_typesRowChanging" msprop:Generator_RowEvHandlerName="media_typesRowChangeEventHandler" msprop:Generator_RowDeletedName="media_typesRowDeleted" msprop:Generator_UserTableName="media_types" msprop:Generator_RowChangedName="media_typesRowChanged" msprop:Generator_RowEvArgName="media_typesRowChangeEvent" msprop:Generator_RowClassName="media_typesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:media" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="media_images_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:media_images" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="media_types_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:media_types" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="mediamedia_images" msdata:parent="media" msdata:child="media_images" msdata:parentkey="ID" msdata:childkey="media_id" msprop:Generator_UserChildTable="media_images" msprop:Generator_ChildPropName="Getmedia_imagesRows" msprop:Generator_UserRelationName="mediamedia_images" msprop:Generator_ParentPropName="mediaRow" msprop:Generator_RelationVarName="relationmediamedia_images" msprop:Generator_UserParentTable="media" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

@@ -17,29 +17,6 @@ namespace Final_Project
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'media.media_types' table. You can move, or remove it, as needed.
-            this.media_typesTableAdapter.Fill(this.media.media_types);
-            // TODO: This line of code loads data into the 'media.media_types' table. You can move, or remove it, as needed.
-            this.media_typesTableAdapter.Fill(this.media.media_types);
-            this.mediaTableAdapter.Fill(this.media._media);
-
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.mediaTableAdapter.FillBy(this.media._media);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Console.WriteLine(sender);
@@ -55,34 +32,25 @@ namespace Final_Project
 
         }
 
-        private void label12_Click(object sender, EventArgs e)
+
+        private void mediaBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void fillByToolStripButton_Click_1(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                this.media_typesTableAdapter.FillBy(this.media.media_types);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
+            this.media_typesTableAdapter.Fill(this.dataDataSet.media_types);
+            this.existing_mediaTableAdapter.Fill(this.dataDataSet.existing_media);
         }
 
-        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                this.media_typesTableAdapter.FillBy1(this.media.media_types);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+            MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }
