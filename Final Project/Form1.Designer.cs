@@ -30,19 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.submit = new System.Windows.Forms.Button();
+            this.type = new System.Windows.Forms.ComboBox();
+            this.mediatypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataDataSet = new Final_Project.dataDataSet();
+            this.dateReleased = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.size = new System.Windows.Forms.TextBox();
+            this.format = new System.Windows.Forms.TextBox();
+            this.location = new System.Windows.Forms.TextBox();
+            this.publisher = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.actors = new System.Windows.Forms.TextBox();
+            this.cost = new System.Windows.Forms.TextBox();
             this.artist = new System.Windows.Forms.TextBox();
             this.length = new System.Windows.Forms.TextBox();
             this.genre = new System.Windows.Forms.TextBox();
@@ -55,18 +59,17 @@
             this.title = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mediaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.estToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.file = new System.Windows.Forms.ToolStripMenuItem();
+            this.reload = new System.Windows.Forms.ToolStripMenuItem();
+            this.exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.help = new System.Windows.Forms.ToolStripMenuItem();
+            this.about = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mediaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.existingmediaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titlteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,39 +80,40 @@
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataDataSet = new Final_Project.dataDataSet();
+            this.existingmediaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.existing_mediaTableAdapter = new Final_Project.dataDataSetTableAdapters.existing_mediaTableAdapter();
-            this.mediatypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.media_typesTableAdapter = new Final_Project.dataDataSetTableAdapters.media_typesTableAdapter();
-            this.submit = new System.Windows.Forms.Button();
+            this.mediaId = new System.Windows.Forms.TextBox();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mediatypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mediaBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mediaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.existingmediaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mediatypesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.mediaId);
             this.groupBox1.Controls.Add(this.submit);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.type);
+            this.groupBox1.Controls.Add(this.dateReleased);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.size);
+            this.groupBox1.Controls.Add(this.format);
+            this.groupBox1.Controls.Add(this.location);
+            this.groupBox1.Controls.Add(this.publisher);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.actors);
+            this.groupBox1.Controls.Add(this.cost);
             this.groupBox1.Controls.Add(this.artist);
             this.groupBox1.Controls.Add(this.length);
             this.groupBox1.Controls.Add(this.genre);
@@ -127,25 +131,50 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Media";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // comboBox1
+            // submit
             // 
-            this.comboBox1.DataSource = this.mediatypesBindingSource;
-            this.comboBox1.DisplayMember = "type";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(471, 205);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(272, 21);
-            this.comboBox1.TabIndex = 25;
-            this.comboBox1.ValueMember = "id";
+            this.submit.Location = new System.Drawing.Point(777, 196);
+            this.submit.Name = "submit";
+            this.submit.Size = new System.Drawing.Size(551, 31);
+            this.submit.TabIndex = 25;
+            this.submit.Text = "submit";
+            this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
-            // dateTimePicker1
+            // type
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(471, 17);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(272, 20);
-            this.dateTimePicker1.TabIndex = 24;
+            this.type.DataSource = this.mediatypesBindingSource;
+            this.type.DisplayMember = "type";
+            this.type.FormattingEnabled = true;
+            this.type.Location = new System.Drawing.Point(471, 205);
+            this.type.Name = "type";
+            this.type.Size = new System.Drawing.Size(272, 21);
+            this.type.TabIndex = 26;
+            this.type.ValueMember = "id";
+            // 
+            // mediatypesBindingSource
+            // 
+            this.mediatypesBindingSource.DataMember = "media_types";
+            this.mediatypesBindingSource.DataSource = this.dataDataSetBindingSource;
+            // 
+            // dataDataSetBindingSource
+            // 
+            this.dataDataSetBindingSource.DataSource = this.dataDataSet;
+            this.dataDataSetBindingSource.Position = 0;
+            // 
+            // dataDataSet
+            // 
+            this.dataDataSet.DataSetName = "dataDataSet";
+            this.dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dateReleased
+            // 
+            this.dateReleased.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateReleased.Location = new System.Drawing.Point(471, 17);
+            this.dateReleased.Name = "dateReleased";
+            this.dateReleased.Size = new System.Drawing.Size(272, 20);
+            this.dateReleased.TabIndex = 24;
             // 
             // label12
             // 
@@ -156,33 +185,33 @@
             this.label12.TabIndex = 23;
             this.label12.Text = "Type";
             // 
-            // textBox5
+            // size
             // 
-            this.textBox5.Location = new System.Drawing.Point(471, 161);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(272, 20);
-            this.textBox5.TabIndex = 22;
+            this.size.Location = new System.Drawing.Point(471, 161);
+            this.size.Name = "size";
+            this.size.Size = new System.Drawing.Size(272, 20);
+            this.size.TabIndex = 22;
             // 
-            // textBox4
+            // format
             // 
-            this.textBox4.Location = new System.Drawing.Point(471, 126);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(272, 20);
-            this.textBox4.TabIndex = 21;
+            this.format.Location = new System.Drawing.Point(471, 126);
+            this.format.Name = "format";
+            this.format.Size = new System.Drawing.Size(272, 20);
+            this.format.TabIndex = 21;
             // 
-            // textBox3
+            // location
             // 
-            this.textBox3.Location = new System.Drawing.Point(471, 89);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(272, 20);
-            this.textBox3.TabIndex = 19;
+            this.location.Location = new System.Drawing.Point(471, 89);
+            this.location.Name = "location";
+            this.location.Size = new System.Drawing.Size(272, 20);
+            this.location.TabIndex = 19;
             // 
-            // textBox2
+            // publisher
             // 
-            this.textBox2.Location = new System.Drawing.Point(471, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(272, 20);
-            this.textBox2.TabIndex = 18;
+            this.publisher.Location = new System.Drawing.Point(471, 53);
+            this.publisher.Name = "publisher";
+            this.publisher.Size = new System.Drawing.Size(272, 20);
+            this.publisher.TabIndex = 18;
             // 
             // label11
             // 
@@ -229,12 +258,12 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Release date";
             // 
-            // actors
+            // cost
             // 
-            this.actors.Location = new System.Drawing.Point(94, 207);
-            this.actors.Name = "actors";
-            this.actors.Size = new System.Drawing.Size(226, 20);
-            this.actors.TabIndex = 11;
+            this.cost.Location = new System.Drawing.Point(94, 207);
+            this.cost.Name = "cost";
+            this.cost.Size = new System.Drawing.Size(226, 20);
+            this.cost.TabIndex = 11;
             // 
             // artist
             // 
@@ -269,9 +298,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(10, 207);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Actors";
+            this.label6.Text = "Cost";
             // 
             // label5
             // 
@@ -325,52 +354,55 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Title";
             // 
-            // toolStripMenuItem1
+            // file
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.estToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
-            this.toolStripMenuItem1.Text = "File";
+            this.file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.reload,
+            this.exit});
+            this.file.Name = "file";
+            this.file.Size = new System.Drawing.Size(37, 20);
+            this.file.Text = "File";
             // 
-            // toolStripMenuItem2
+            // reload
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(110, 22);
-            this.toolStripMenuItem2.Text = "Reload";
+            this.reload.Name = "reload";
+            this.reload.Size = new System.Drawing.Size(110, 22);
+            this.reload.Text = "Reload";
+            this.reload.Click += new System.EventHandler(this.estToolStripReload_Click);
             // 
-            // estToolStripMenuItem
+            // exit
             // 
-            this.estToolStripMenuItem.Name = "estToolStripMenuItem";
-            this.estToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.estToolStripMenuItem.Text = "Exit";
-            this.estToolStripMenuItem.Click += new System.EventHandler(this.estToolStripMenuItem_Click);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(110, 22);
+            this.exit.Text = "Exit";
+            this.exit.Click += new System.EventHandler(this.estToolStripExit_Click);
             // 
-            // helpToolStripMenuItem
+            // help
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.about});
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(44, 20);
+            this.help.Text = "Help";
             // 
-            // aboutToolStripMenuItem
+            // about
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.about.Name = "about";
+            this.about.Size = new System.Drawing.Size(107, 22);
+            this.about.Text = "About";
+            this.about.Click += new System.EventHandler(this.estToolStripAbout_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.helpToolStripMenuItem});
+            this.file,
+            this.help});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1377, 24);
             this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // dataGridView1
             // 
@@ -381,8 +413,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
             this.typeDataGridViewTextBoxColumn,
-            this.titlteDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.genreDataGridViewTextBoxColumn,
             this.lengthDataGridViewTextBoxColumn,
@@ -401,11 +433,6 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
-            // existingmediaBindingSource
-            // 
-            this.existingmediaBindingSource.DataMember = "existing_media";
-            this.existingmediaBindingSource.DataSource = this.dataDataSetBindingSource;
-            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -413,19 +440,19 @@
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             this.iDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "title";
+            this.dataGridViewTextBoxColumn1.HeaderText = "title";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // typeDataGridViewTextBoxColumn
             // 
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
             this.typeDataGridViewTextBoxColumn.HeaderText = "type";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // titlteDataGridViewTextBoxColumn
-            // 
-            this.titlteDataGridViewTextBoxColumn.DataPropertyName = "titlte";
-            this.titlteDataGridViewTextBoxColumn.HeaderText = "titlte";
-            this.titlteDataGridViewTextBoxColumn.Name = "titlteDataGridViewTextBoxColumn";
-            this.titlteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -497,44 +524,47 @@
             this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
             this.sizeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataDataSetBindingSource
+            // existingmediaBindingSource
             // 
-            this.dataDataSetBindingSource.DataSource = this.dataDataSet;
-            this.dataDataSetBindingSource.Position = 0;
-            // 
-            // dataDataSet
-            // 
-            this.dataDataSet.DataSetName = "dataDataSet";
-            this.dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.existingmediaBindingSource.DataMember = "existing_media";
+            this.existingmediaBindingSource.DataSource = this.dataDataSetBindingSource;
             // 
             // existing_mediaTableAdapter
             // 
             this.existing_mediaTableAdapter.ClearBeforeFill = true;
             // 
-            // mediatypesBindingSource
-            // 
-            this.mediatypesBindingSource.DataMember = "media_types";
-            this.mediatypesBindingSource.DataSource = this.dataDataSetBindingSource;
-            // 
             // media_typesTableAdapter
             // 
             this.media_typesTableAdapter.ClearBeforeFill = true;
             // 
-            // submit
+            // mediaId
             // 
-            this.submit.Location = new System.Drawing.Point(777, 196);
-            this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(551, 31);
-            this.submit.TabIndex = 26;
-            this.submit.Text = "submit";
-            this.submit.UseVisualStyleBackColor = true;
-            this.submit.Click += new System.EventHandler(this.button1_Click);
+            this.mediaId.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.mediaId.Enabled = false;
+            this.mediaId.Location = new System.Drawing.Point(777, 17);
+            this.mediaId.Name = "mediaId";
+            this.mediaId.Size = new System.Drawing.Size(100, 20);
+            this.mediaId.TabIndex = 27;
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1377, 493);
+            this.ClientSize = new System.Drawing.Size(1377, 501);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -544,15 +574,15 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mediatypesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mediaBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mediaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.existingmediaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mediatypesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,7 +598,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox actors;
+        private System.Windows.Forms.TextBox cost;
         private System.Windows.Forms.TextBox artist;
         private System.Windows.Forms.TextBox length;
         private System.Windows.Forms.TextBox genre;
@@ -578,18 +608,17 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox size;
+        private System.Windows.Forms.TextBox format;
+        private System.Windows.Forms.TextBox location;
+        private System.Windows.Forms.TextBox publisher;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem estToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker dateReleased;
+        private System.Windows.Forms.ComboBox type;
+        private System.Windows.Forms.ToolStripMenuItem file;
+        private System.Windows.Forms.ToolStripMenuItem reload;
+        private System.Windows.Forms.ToolStripMenuItem exit;
+        private System.Windows.Forms.ToolStripMenuItem help;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.BindingSource mediaBindingSource;
         private System.Windows.Forms.BindingSource mediaBindingSource1;
@@ -598,9 +627,13 @@
         private dataDataSet dataDataSet;
         private System.Windows.Forms.BindingSource existingmediaBindingSource;
         private dataDataSetTableAdapters.existing_mediaTableAdapter existing_mediaTableAdapter;
+        private System.Windows.Forms.BindingSource mediatypesBindingSource;
+        private dataDataSetTableAdapters.media_typesTableAdapter media_typesTableAdapter;
+        private System.Windows.Forms.Button submit;
+        private System.Windows.Forms.ToolStripMenuItem about;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titlteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
@@ -611,9 +644,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn formatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource mediatypesBindingSource;
-        private dataDataSetTableAdapters.media_typesTableAdapter media_typesTableAdapter;
-        private System.Windows.Forms.Button submit;
+        private System.Windows.Forms.TextBox mediaId;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
 

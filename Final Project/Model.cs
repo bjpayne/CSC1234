@@ -13,33 +13,37 @@ namespace Final_Project
         private OleDbCommand command;
         private OleDbDataReader reader;
 
-        public Model(string databasePath)
+        public Model(String databasePath)
         {
             InitializeDatabaseConnection(databasePath);
         }
 
         public void InsertMedia(IOrganize media)
         {
-            //TODO: Add logic to validate fields
             try
             {
                 command = new OleDbCommand();
                 command.Connection = connection;
-                command.CommandText = $"INSERT INTO GAMES (title, publisher, location) VALUES" +
-                    $" ('{media.Title}', '{media.Publisher}', '{media.Location}')";
-                connection.Open();
-                int result = command.ExecuteNonQuery();
-                
 
-                //here for troubleshooting/logging
-                if(result > 0)
-                {
-                    Console.WriteLine($"INSERT {media.Title} into GAMES Table");
-                }
+                String statement = $"INSERT INTO media (type_id, title, description, genre, length, artists, cost, date_released," +
+                    $" publisher, location, format, size) VALUES" +
+                    $" ('{media.TypeId}', '{media.Title}', '{media.Description}', '{media.Genre}', '{media.Length}', '{media.Artists}', " +
+                    $"'{media.Cost}', '{media.DateReleased}', '{media.Publisher}', '{media.Location}', '{media.Format}', " +
+                    $"'{media.Size}')";
+
+                command.CommandText = statement;
+
+                connection.Open();
+
+                int result = command.ExecuteNonQuery();
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"ERROR inserting record {media.Title} into table: {ex}");
+
+                throw new Exception("Could not store record. Please try again.");
+
             }
             finally
             {
@@ -48,12 +52,147 @@ namespace Final_Project
 
         }
 
+        public IOrganize GetMedia(String id)
+        {
+            try
+            {
+                command = new OleDbCommand();
+                command.Connection = connection;
+
+                String statement = $"SELECT * FROM existing_media WHERE id = {id}";
+
+                command.CommandText = statement;
+
+                connection.Open();
+
+                OleDbDataReader reader = command.ExecuteReader();
+
+                IOrganize media = null;
+
+                while (reader.Read())
+                {
+                    switch (reader.GetValue(1).ToString())
+                    {
+                        case "Game":
+                            media = new Game();
+                            break;
+                        case "Movie":
+                            media = new Movie();
+                            break;
+                        case "Music":
+                            media = new Music();
+                            break;
+                        default:
+                            throw new Exception("Invalid media type");
+                            break;
+                    }
+
+                    media.TypeId = reader.GetValue(1).ToString();
+                    media.Title = reader.GetValue(2).ToString();
+                    media.Description = reader.GetValue(3).ToString();
+                    media.Genre = reader.GetValue(4).ToString();
+                    media.Length = reader.GetValue(5).ToString();
+                    media.Artists = reader.GetValue(6).ToString();
+                    media.Cost = reader.GetValue(7).ToString();
+                    media.DateReleased = reader.GetValue(8).ToString();
+                    media.Publisher = reader.GetValue(9).ToString();
+                    media.Location = reader.GetValue(10).ToString();
+                    media.Format = reader.GetValue(11).ToString();
+                    media.Size = reader.GetValue(12).ToString();
+
+                    return media;
+                }
+
+                return media;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public IOrganize UdpateMedia(IOrganize media, String id)
+        {
+            try
+            {
+                command = new OleDbCommand();
+                command.Connection = connection;
+
+                String statement = $"UPDATE media SET " +
+                    $"type_id = '{media.TypeId}', " +
+                    $"title = '{media.Title}', " +
+                    $"description = '{media.Description}', " +
+                    $"genre = '{media.Genre}', " +
+                    $"length = '{media.Length}', " +
+                    $"artists = '{media.Artists}', " +
+                    $"cost = '{media.Cost}', " +
+                    $"date_released = '{media.DateReleased}', " +
+                    $"publisher = '{media.Publisher}', " +
+                    $"location = '{media.Location}', " +
+                    $"format = '{media.Format}'," +
+                    $"size = '{media.Size}' WHERE id = '{id}'";
+
+
+                command.CommandText = statement;
+
+                connection.Open();
+
+                int result = command.ExecuteNonQuery();
+
+                return GetMedia(id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
+        public void DeleteMedia(String id)
+        {
+            try
+            {
+                command = new OleDbCommand();
+                command.Connection = connection;
+
+                String statement = $"DELETE * FROM media WHERE id = {id} ";
+
+                command.CommandText = statement;
+
+                connection.Open();
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         private void InitializeDatabaseConnection(string databasePath)
         {
             connection = new OleDbConnection
             {
-                ConnectionString = $"Provider = Microsoft.ACE.OleDB.12.0;Data Source = {databasePath};"
+                ConnectionString = $"Provider = Microsoft.Jet.OLEDB.4.0;Data Source={databasePath};"
             };
+
+            System.Diagnostics.Debug.Write("Database initialized");
         }
     }
 }

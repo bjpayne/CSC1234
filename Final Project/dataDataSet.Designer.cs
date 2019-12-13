@@ -395,8 +395,6 @@ namespace Final_Project {
             
             private global::System.Data.DataColumn columntype;
             
-            private global::System.Data.DataColumn columntitlte;
-            
             private global::System.Data.DataColumn columndescription;
             
             private global::System.Data.DataColumn columngenre;
@@ -416,6 +414,8 @@ namespace Final_Project {
             private global::System.Data.DataColumn columnformat;
             
             private global::System.Data.DataColumn columnsize;
+            
+            private global::System.Data.DataColumn columntitle;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -463,14 +463,6 @@ namespace Final_Project {
             public global::System.Data.DataColumn typeColumn {
                 get {
                     return this.columntype;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn titlteColumn {
-                get {
-                    return this.columntitlte;
                 }
             }
             
@@ -556,6 +548,14 @@ namespace Final_Project {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn titleColumn {
+                get {
+                    return this.columntitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -591,12 +591,11 @@ namespace Final_Project {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public existing_mediaRow Addexisting_mediaRow(string type, string titlte, string description, string genre, string length, string artists, decimal cost, System.DateTime date_released, string publisher, string location, string format, string size) {
+            public existing_mediaRow Addexisting_mediaRow(string type, string description, string genre, string length, string artists, decimal cost, System.DateTime date_released, string publisher, string location, string format, string size, string title) {
                 existing_mediaRow rowexisting_mediaRow = ((existing_mediaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         type,
-                        titlte,
                         description,
                         genre,
                         length,
@@ -606,7 +605,8 @@ namespace Final_Project {
                         publisher,
                         location,
                         format,
-                        size};
+                        size,
+                        title};
                 rowexisting_mediaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowexisting_mediaRow);
                 return rowexisting_mediaRow;
@@ -631,7 +631,6 @@ namespace Final_Project {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columntype = base.Columns["type"];
-                this.columntitlte = base.Columns["titlte"];
                 this.columndescription = base.Columns["description"];
                 this.columngenre = base.Columns["genre"];
                 this.columnlength = base.Columns["length"];
@@ -642,6 +641,7 @@ namespace Final_Project {
                 this.columnlocation = base.Columns["location"];
                 this.columnformat = base.Columns["format"];
                 this.columnsize = base.Columns["size"];
+                this.columntitle = base.Columns["title"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -651,8 +651,6 @@ namespace Final_Project {
                 base.Columns.Add(this.columnID);
                 this.columntype = new global::System.Data.DataColumn("type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntype);
-                this.columntitlte = new global::System.Data.DataColumn("titlte", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntitlte);
                 this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescription);
                 this.columngenre = new global::System.Data.DataColumn("genre", typeof(string), null, global::System.Data.MappingType.Element);
@@ -673,11 +671,12 @@ namespace Final_Project {
                 base.Columns.Add(this.columnformat);
                 this.columnsize = new global::System.Data.DataColumn("size", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsize);
+                this.columntitle = new global::System.Data.DataColumn("title", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntitle);
                 this.columnID.AutoIncrement = true;
                 this.columnID.AutoIncrementSeed = -1;
                 this.columnID.AutoIncrementStep = -1;
                 this.columntype.MaxLength = 255;
-                this.columntitlte.MaxLength = 255;
                 this.columndescription.MaxLength = 255;
                 this.columngenre.MaxLength = 255;
                 this.columnlength.MaxLength = 255;
@@ -686,6 +685,7 @@ namespace Final_Project {
                 this.columnlocation.MaxLength = 255;
                 this.columnformat.MaxLength = 255;
                 this.columnsize.MaxLength = 255;
+                this.columntitle.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1866,22 +1866,6 @@ namespace Final_Project {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string titlte {
-                get {
-                    try {
-                        return ((string)(this[this.tableexisting_media.titlteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'titlte\' in table \'existing_media\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableexisting_media.titlteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string description {
                 get {
                     try {
@@ -2042,6 +2026,22 @@ namespace Final_Project {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string title {
+                get {
+                    try {
+                        return ((string)(this[this.tableexisting_media.titleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'title\' in table \'existing_media\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableexisting_media.titleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableexisting_media.IDColumn);
             }
@@ -2062,18 +2062,6 @@ namespace Final_Project {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SettypeNull() {
                 this[this.tableexisting_media.typeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstitlteNull() {
-                return this.IsNull(this.tableexisting_media.titlteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettitlteNull() {
-                this[this.tableexisting_media.titlteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2194,6 +2182,18 @@ namespace Final_Project {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetsizeNull() {
                 this[this.tableexisting_media.sizeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstitleNull() {
+                return this.IsNull(this.tableexisting_media.titleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettitleNull() {
+                this[this.tableexisting_media.titleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2980,7 +2980,6 @@ namespace Final_Project.dataDataSetTableAdapters {
             tableMapping.DataSetTable = "existing_media";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("type", "type");
-            tableMapping.ColumnMappings.Add("titlte", "titlte");
             tableMapping.ColumnMappings.Add("description", "description");
             tableMapping.ColumnMappings.Add("genre", "genre");
             tableMapping.ColumnMappings.Add("length", "length");
@@ -2991,6 +2990,7 @@ namespace Final_Project.dataDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("location", "location");
             tableMapping.ColumnMappings.Add("format", "format");
             tableMapping.ColumnMappings.Add("size", "size");
+            tableMapping.ColumnMappings.Add("title", "title");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3004,12 +3004,17 @@ namespace Final_Project.dataDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, type, titlte, description, genre, length, artists, cost, date_released" +
-                ", publisher, location, format, [size] FROM existing_media";
+            this._commandCollection[0].CommandText = "SELECT ID, type, description, genre, length, artists, cost, date_released, publis" +
+                "her, location, format, [size], title FROM existing_media";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        ID, type, title, description, genre, length, artists, cost, date_re" +
+                "leased, publisher, location, format, [size]\r\nFROM            existing_media";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3034,6 +3039,19 @@ namespace Final_Project.dataDataSetTableAdapters {
             dataDataSet.existing_mediaDataTable dataTable = new dataDataSet.existing_mediaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(dataDataSet.existing_mediaDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
     }
     
