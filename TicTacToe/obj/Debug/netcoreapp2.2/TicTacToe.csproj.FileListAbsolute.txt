@@ -1,0 +1,11 @@
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/bin/Debug/netcoreapp2.2/TicTacToe.deps.json
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/bin/Debug/netcoreapp2.2/TicTacToe.runtimeconfig.json
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/bin/Debug/netcoreapp2.2/TicTacToe.runtimeconfig.dev.json
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/bin/Debug/netcoreapp2.2/TicTacToe.dll
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/bin/Debug/netcoreapp2.2/TicTacToe.pdb
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/obj/Debug/netcoreapp2.2/TicTacToe.csprojAssemblyReference.cache
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/obj/Debug/netcoreapp2.2/TicTacToe.csproj.CoreCompileInputs.cache
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/obj/Debug/netcoreapp2.2/TicTacToe.AssemblyInfoInputs.cache
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/obj/Debug/netcoreapp2.2/TicTacToe.AssemblyInfo.cs
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/obj/Debug/netcoreapp2.2/TicTacToe.dll
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Programs/TicTacToe/obj/Debug/netcoreapp2.2/TicTacToe.pdb

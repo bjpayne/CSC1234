@@ -591,7 +591,7 @@ namespace Final_Project {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public existing_mediaRow Addexisting_mediaRow(string type, string description, string genre, string length, string artists, decimal cost, System.DateTime date_released, string publisher, string location, string format, string size, string title) {
+            public existing_mediaRow Addexisting_mediaRow(string type, string description, string genre, string length, string artists, string cost, string date_released, string publisher, string location, string format, string size, string title) {
                 existing_mediaRow rowexisting_mediaRow = ((existing_mediaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -659,9 +659,9 @@ namespace Final_Project {
                 base.Columns.Add(this.columnlength);
                 this.columnartists = new global::System.Data.DataColumn("artists", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnartists);
-                this.columncost = new global::System.Data.DataColumn("cost", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columncost = new global::System.Data.DataColumn("cost", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncost);
-                this.columndate_released = new global::System.Data.DataColumn("date_released", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndate_released = new global::System.Data.DataColumn("date_released", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_released);
                 this.columnpublisher = new global::System.Data.DataColumn("publisher", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpublisher);
@@ -1930,10 +1930,10 @@ namespace Final_Project {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal cost {
+            public string cost {
                 get {
                     try {
-                        return ((decimal)(this[this.tableexisting_media.costColumn]));
+                        return ((string)(this[this.tableexisting_media.costColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cost\' in table \'existing_media\' is DBNull.", e);
@@ -1946,10 +1946,10 @@ namespace Final_Project {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime date_released {
+            public string date_released {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableexisting_media.date_releasedColumn]));
+                        return ((string)(this[this.tableexisting_media.date_releasedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'date_released\' in table \'existing_media\' is DBNull.", e);

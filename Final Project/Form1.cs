@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace Final_Project
     {
         private String databasePath = "C:\\Projects\\CSCI234 Final\\Final Project\\data.mdb";
 
+        private String mediaId = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -21,27 +24,87 @@ namespace Final_Project
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.media_typesTableAdapter.Fill(this.dataDataSet.media_types);
-            this.existing_mediaTableAdapter.Fill(this.dataDataSet.existing_media);
+            // TODO: This line of code loads data into the 'dataDataSet.media_images' table. You can move, or remove it, as needed.
+            this.media_imagesTableAdapter.Fill(this.dataDataSet.media_images);
+            this.media_typesTableAdapter.Fill(dataDataSet.media_types);
+            this.existing_mediaTableAdapter.Fill(dataDataSet.existing_media);
         }
 
-        private void estToolStripReload_Click(object sender, EventArgs e)
+        private void FileMenuNewClick(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.Update();
-            dataGridView1.Refresh();
+            ClearForm();
 
-            dataGridView1.DataSource = dataDataSet.existing_media;
-
-            this.existing_mediaTableAdapter.Fill(this.dataDataSet.existing_media);
+            ReloadData();
         }
 
-        private void estToolStripExit_Click(object sender, EventArgs e)
+        private void FileMenuDeleteClick(object sender, EventArgs e)
         {
-            this.Close();
+            if (mediaId.Length == 0)
+            {
+                return;
+            }
+
+            Model model = new Model(databasePath);
+
+            IOrganize media = model.GetMedia(mediaId);
+
+            if (media == null)
+            {
+                MessageBox.Show("Media not found.");
+
+                return;
+            }
+
+            String message = $"Are you sure you want to delete {media.Title}?";
+
+            String caption = "Media Delete";
+
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+
+            // If the yes button was pressed ...
+            if (result == DialogResult.Yes)
+            {
+                model.DeleteMedia(mediaId);
+
+                ClearForm();
+
+                ReloadData();
+
+                return;
+            }
+
+            // No was pressed
         }
 
-        private void estToolStripAbout_Click(object sender, EventArgs e)
+        private void FileMenuReloadClick(object sender, EventArgs eventArgs)
+        {
+            ClearForm();
+
+            ReloadData();
+        }
+
+        private void FileMenuExitClick(object sender, EventArgs e)
+        {
+            String message = "Are you sure that you would like to exit the program?";
+
+            String caption = "Form Closing";
+
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            Close();
+        }
+
+        private void HelpMenuAboutClick(object sender, EventArgs e)
         {
             String message = "Add a new item by entering in the information and clicking " +
                 "'submit' or edit an existing element using the table\n\nWritten by Ben Payne";
@@ -51,13 +114,18 @@ namespace Final_Project
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Model model = new Model(databasePath);
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
 
             String id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 
+            Model model = new Model(databasePath);
+
             IOrganize media = model.GetMedia(id);
 
-            mediaId.Text = id;
+            mediaId = id;
             type.SelectedIndex = type.FindStringExact(media.TypeId);
             title.Text = media.Title;
             description.Text = media.Description;
@@ -72,15 +140,25 @@ namespace Final_Project
             size.Text = media.Size;
         }
 
-        private void submit_Click(object sender, EventArgs eventArgs)
+        private void Submit_Click(object sender, EventArgs eventArgs)
         {
-            if (mediaId.TextLength > 0)
+            if (mediaId.Length > 0)
             {
                 UpdateMedia();
-
-                return;
+            }
+            else
+            {
+                CreateNewMedia();
             }
 
+            ReloadData();
+
+
+            ClearForm();
+        }
+
+        private void CreateNewMedia()
+        {
             DataRowView dataRowView = type.SelectedItem as DataRowView;
 
             String mediaType = string.Empty;
@@ -136,25 +214,16 @@ namespace Final_Project
             }
         }
 
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.existing_mediaTableAdapter.FillBy(this.dataDataSet.existing_media);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
         private void UpdateMedia()
         {
+            if (mediaId.Length == 0)
+            {
+                return;
+            }
 
             Model model = new Model(databasePath);
 
-            IOrganize media = model.GetMedia(mediaId.Text);
+            IOrganize media = model.GetMedia(mediaId);
 
             DataRowView dataRowView = type.SelectedItem as DataRowView;
 
@@ -173,7 +242,7 @@ namespace Final_Project
                 media.Format = format.Text;
                 media.Size = size.Text;
 
-                model.UdpateMedia(media, mediaId.Text);
+                model.UdpateMedia(media, mediaId);
             }
             catch (Exception e)
             {
@@ -181,9 +250,40 @@ namespace Final_Project
             }
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ReloadData()
         {
-            mediaId.Text = "";
+            Model model = null;
+
+            try
+            {
+                model = new Model(databasePath);
+                model.OpenConnection();
+
+                OleDbDataAdapter adapter = model.GetAdapterForDataGridView("SELECT * FROM existing_media");
+
+                DataSet dataSet = new DataSet();
+
+                adapter.Fill(dataSet, "existing_media");
+
+                dataGridView1.DataSource = dataSet;
+                dataGridView1.DataMember = "existing_media";
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                if (model != null)
+                {
+                    model.CloseConnection();
+                }
+            }
+        }
+
+        private void ClearForm()
+        {
+            mediaId = "";
             type.SelectedIndex = 0;
             title.Text = "";
             description.Text = "";
@@ -196,20 +296,7 @@ namespace Final_Project
             location.Text = "";
             format.Text = "";
             size.Text = "";
-        }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (mediaId.TextLength == 0)
-            {
-                return;
-            }
-
-            Model model = new Model(databasePath);
-
-            model.DeleteMedia(mediaId.Text);
-
-            newToolStripMenuItem_Click(sender, e);
         }
     }
 }

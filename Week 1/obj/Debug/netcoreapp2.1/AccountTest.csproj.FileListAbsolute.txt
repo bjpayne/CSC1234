@@ -1,0 +1,22 @@
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.deps.json
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.runtimeconfig.json
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.runtimeconfig.dev.json
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.dll
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.pdb
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.csprojAssemblyReference.cache
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.csproj.CoreCompileInputs.cache
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.AssemblyInfoInputs.cache
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.AssemblyInfo.cs
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.dll
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1 Example/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.pdb
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.deps.json
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.runtimeconfig.json
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.runtimeconfig.dev.json
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.dll
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/bin/Debug/netcoreapp2.1/AccountTest.pdb
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.csprojAssemblyReference.cache
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.csproj.CoreCompileInputs.cache
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.AssemblyInfoInputs.cache
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.AssemblyInfo.cs
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.dll
+/Users/benjaminpayne/OneDrive - email.davenport.edu/CSCI234/Week 1/Program/AccountTest/obj/Debug/netcoreapp2.1/AccountTest.pdb

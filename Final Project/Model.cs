@@ -18,6 +18,13 @@ namespace Final_Project
             InitializeDatabaseConnection(databasePath);
         }
 
+        public OleDbDataAdapter GetAdapterForDataGridView(String command)
+        {
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command, connection);
+
+            return adapter;
+        }
+
         public void InsertMedia(IOrganize media)
         {
             try
@@ -26,7 +33,7 @@ namespace Final_Project
                 command.Connection = connection;
 
                 String statement = $"INSERT INTO media (type_id, title, description, genre, length, artists, cost, date_released," +
-                    $" publisher, location, format, size) VALUES" +
+                    $" publisher, location, format, [size]) VALUES" +
                     $" ('{media.TypeId}', '{media.Title}', '{media.Description}', '{media.Genre}', '{media.Length}', '{media.Artists}', " +
                     $"'{media.Cost}', '{media.DateReleased}', '{media.Publisher}', '{media.Location}', '{media.Format}', " +
                     $"'{media.Size}')";
@@ -65,7 +72,7 @@ namespace Final_Project
 
                 connection.Open();
 
-                OleDbDataReader reader = command.ExecuteReader();
+                reader = command.ExecuteReader();
 
                 IOrganize media = null;
 
@@ -84,7 +91,6 @@ namespace Final_Project
                             break;
                         default:
                             throw new Exception("Invalid media type");
-                            break;
                     }
 
                     media.TypeId = reader.GetValue(1).ToString();
@@ -121,11 +127,8 @@ namespace Final_Project
         {
             try
             {
-                command = new OleDbCommand();
-                command.Connection = connection;
-
                 String statement = $"UPDATE media SET " +
-                    $"type_id = '{media.TypeId}', " +
+                    $"type_id = {media.TypeId}, " +
                     $"title = '{media.Title}', " +
                     $"description = '{media.Description}', " +
                     $"genre = '{media.Genre}', " +
@@ -135,8 +138,8 @@ namespace Final_Project
                     $"date_released = '{media.DateReleased}', " +
                     $"publisher = '{media.Publisher}', " +
                     $"location = '{media.Location}', " +
-                    $"format = '{media.Format}'," +
-                    $"size = '{media.Size}' WHERE id = '{id}'";
+                    $"format = '{media.Format}', " +
+                    $"[size] = '{media.Size}' WHERE id = {id}";
 
 
                 command.CommandText = statement;
@@ -144,6 +147,8 @@ namespace Final_Project
                 connection.Open();
 
                 int result = command.ExecuteNonQuery();
+
+                connection.Close();
 
                 return GetMedia(id);
             }
@@ -185,14 +190,22 @@ namespace Final_Project
             }
         }
 
+        public void OpenConnection()
+        {
+            connection.Open();
+        }
+
+        public void CloseConnection()
+        {
+            connection.Close();
+        }
+
         private void InitializeDatabaseConnection(string databasePath)
         {
             connection = new OleDbConnection
             {
                 ConnectionString = $"Provider = Microsoft.Jet.OLEDB.4.0;Data Source={databasePath};"
             };
-
-            System.Diagnostics.Debug.Write("Database initialized");
         }
     }
 }

@@ -60,6 +60,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.mediaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.file = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reload = new System.Windows.Forms.ToolStripMenuItem();
             this.exit = new System.Windows.Forms.ToolStripMenuItem();
             this.help = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,9 +85,9 @@
             this.existingmediaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.existing_mediaTableAdapter = new Final_Project.dataDataSetTableAdapters.existing_mediaTableAdapter();
             this.media_typesTableAdapter = new Final_Project.dataDataSetTableAdapters.media_typesTableAdapter();
-            this.mediaId = new System.Windows.Forms.TextBox();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.media_imagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.media_imagesTableAdapter = new Final_Project.dataDataSetTableAdapters.media_imagesTableAdapter();
+            this.tableAdapterManager = new Final_Project.dataDataSetTableAdapters.TableAdapterManager();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mediatypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).BeginInit();
@@ -95,11 +97,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.mediaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.existingmediaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.media_imagesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.mediaId);
             this.groupBox1.Controls.Add(this.submit);
             this.groupBox1.Controls.Add(this.type);
             this.groupBox1.Controls.Add(this.dateReleased);
@@ -127,20 +129,20 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1345, 247);
+            this.groupBox1.Size = new System.Drawing.Size(756, 292);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Media";
+            this.groupBox1.Text = "Manage Media";
             // 
             // submit
             // 
-            this.submit.Location = new System.Drawing.Point(777, 196);
+            this.submit.Location = new System.Drawing.Point(471, 250);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(551, 31);
-            this.submit.TabIndex = 25;
+            this.submit.Size = new System.Drawing.Size(272, 31);
+            this.submit.TabIndex = 13;
             this.submit.Text = "submit";
             this.submit.UseVisualStyleBackColor = true;
-            this.submit.Click += new System.EventHandler(this.submit_Click);
+            this.submit.Click += new System.EventHandler(this.Submit_Click);
             // 
             // type
             // 
@@ -150,7 +152,7 @@
             this.type.Location = new System.Drawing.Point(471, 205);
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(272, 21);
-            this.type.TabIndex = 26;
+            this.type.TabIndex = 12;
             this.type.ValueMember = "id";
             // 
             // mediatypesBindingSource
@@ -174,7 +176,7 @@
             this.dateReleased.Location = new System.Drawing.Point(471, 17);
             this.dateReleased.Name = "dateReleased";
             this.dateReleased.Size = new System.Drawing.Size(272, 20);
-            this.dateReleased.TabIndex = 24;
+            this.dateReleased.TabIndex = 7;
             // 
             // label12
             // 
@@ -190,28 +192,28 @@
             this.size.Location = new System.Drawing.Point(471, 161);
             this.size.Name = "size";
             this.size.Size = new System.Drawing.Size(272, 20);
-            this.size.TabIndex = 22;
+            this.size.TabIndex = 11;
             // 
             // format
             // 
             this.format.Location = new System.Drawing.Point(471, 126);
             this.format.Name = "format";
             this.format.Size = new System.Drawing.Size(272, 20);
-            this.format.TabIndex = 21;
+            this.format.TabIndex = 10;
             // 
             // location
             // 
             this.location.Location = new System.Drawing.Point(471, 89);
             this.location.Name = "location";
             this.location.Size = new System.Drawing.Size(272, 20);
-            this.location.TabIndex = 19;
+            this.location.TabIndex = 9;
             // 
             // publisher
             // 
             this.publisher.Location = new System.Drawing.Point(471, 53);
             this.publisher.Name = "publisher";
             this.publisher.Size = new System.Drawing.Size(272, 20);
-            this.publisher.TabIndex = 18;
+            this.publisher.TabIndex = 8;
             // 
             // label11
             // 
@@ -263,35 +265,35 @@
             this.cost.Location = new System.Drawing.Point(94, 207);
             this.cost.Name = "cost";
             this.cost.Size = new System.Drawing.Size(226, 20);
-            this.cost.TabIndex = 11;
+            this.cost.TabIndex = 6;
             // 
             // artist
             // 
             this.artist.Location = new System.Drawing.Point(94, 164);
             this.artist.Name = "artist";
             this.artist.Size = new System.Drawing.Size(226, 20);
-            this.artist.TabIndex = 10;
+            this.artist.TabIndex = 5;
             // 
             // length
             // 
             this.length.Location = new System.Drawing.Point(94, 127);
             this.length.Name = "length";
             this.length.Size = new System.Drawing.Size(226, 20);
-            this.length.TabIndex = 9;
+            this.length.TabIndex = 4;
             // 
             // genre
             // 
             this.genre.Location = new System.Drawing.Point(94, 90);
             this.genre.Name = "genre";
             this.genre.Size = new System.Drawing.Size(226, 20);
-            this.genre.TabIndex = 8;
+            this.genre.TabIndex = 3;
             // 
             // description
             // 
             this.description.Location = new System.Drawing.Point(94, 54);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(226, 20);
-            this.description.TabIndex = 7;
+            this.description.TabIndex = 2;
             // 
             // label6
             // 
@@ -365,19 +367,33 @@
             this.file.Size = new System.Drawing.Size(37, 20);
             this.file.Text = "File";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.FileMenuNewClick);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.FileMenuDeleteClick);
+            // 
             // reload
             // 
             this.reload.Name = "reload";
             this.reload.Size = new System.Drawing.Size(110, 22);
             this.reload.Text = "Reload";
-            this.reload.Click += new System.EventHandler(this.estToolStripReload_Click);
+            this.reload.Click += new System.EventHandler(this.FileMenuReloadClick);
             // 
             // exit
             // 
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(110, 22);
             this.exit.Text = "Exit";
-            this.exit.Click += new System.EventHandler(this.estToolStripExit_Click);
+            this.exit.Click += new System.EventHandler(this.FileMenuExitClick);
             // 
             // help
             // 
@@ -392,7 +408,7 @@
             this.about.Name = "about";
             this.about.Size = new System.Drawing.Size(107, 22);
             this.about.Text = "About";
-            this.about.Click += new System.EventHandler(this.estToolStripAbout_Click);
+            this.about.Click += new System.EventHandler(this.HelpMenuAboutClick);
             // 
             // menuStrip1
             // 
@@ -401,7 +417,7 @@
             this.help});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1377, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(774, 24);
             this.menuStrip1.TabIndex = 2;
             // 
             // dataGridView1
@@ -426,10 +442,10 @@
             this.formatDataGridViewTextBoxColumn,
             this.sizeDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.existingmediaBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 292);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 360);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1345, 189);
+            this.dataGridView1.Size = new System.Drawing.Size(756, 189);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
@@ -537,34 +553,28 @@
             // 
             this.media_typesTableAdapter.ClearBeforeFill = true;
             // 
-            // mediaId
+            // media_imagesBindingSource
             // 
-            this.mediaId.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.mediaId.Enabled = false;
-            this.mediaId.Location = new System.Drawing.Point(777, 17);
-            this.mediaId.Name = "mediaId";
-            this.mediaId.Size = new System.Drawing.Size(100, 20);
-            this.mediaId.TabIndex = 27;
+            this.media_imagesBindingSource.DataMember = "media_images";
+            this.media_imagesBindingSource.DataSource = this.dataDataSet;
             // 
-            // newToolStripMenuItem
+            // media_imagesTableAdapter
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.media_imagesTableAdapter.ClearBeforeFill = true;
             // 
-            // deleteToolStripMenuItem
+            // tableAdapterManager
             // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.media_imagesTableAdapter = this.media_imagesTableAdapter;
+            this.tableAdapterManager.media_typesTableAdapter = this.media_typesTableAdapter;
+            this.tableAdapterManager.mediaTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Final_Project.dataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1377, 501);
+            this.ClientSize = new System.Drawing.Size(774, 561);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -583,6 +593,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mediaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.existingmediaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.media_imagesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -631,8 +642,10 @@
         private dataDataSetTableAdapters.media_typesTableAdapter media_typesTableAdapter;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.ToolStripMenuItem about;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
@@ -644,9 +657,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn formatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox mediaId;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.BindingSource media_imagesBindingSource;
+        private dataDataSetTableAdapters.media_imagesTableAdapter media_imagesTableAdapter;
+        private dataDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }
 
